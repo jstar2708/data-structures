@@ -16,8 +16,7 @@ public class MinStack {
         stack.push(val);
         if (minStack.isEmpty()) {
             minStack.push(val);
-        }
-        else {
+        } else {
             minStack.push(Math.min(minStack.peek(), val));
         }
     }

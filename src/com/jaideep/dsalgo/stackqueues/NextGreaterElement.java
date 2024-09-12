@@ -6,17 +6,15 @@ public class NextGreaterElement {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         final int[] nextGreater = new int[nums2.length];
         final Stack<Integer> stack = new Stack<>();
-        for (int i = nums2.length-1; i >= 0; i--) {
+        for (int i = nums2.length - 1; i >= 0; i--) {
             if (stack.isEmpty()) {
                 nextGreater[i] = -1;
-            }
-            else if (nums2[i] >= nums2[stack.peek()]) {
+            } else if (nums2[i] >= nums2[stack.peek()]) {
                 while (!stack.isEmpty() && nums2[i] >= nums2[stack.peek()]) {
                     stack.pop();
                 }
                 nextGreater[i] = stack.isEmpty() ? -1 : nums2[stack.peek()];
-            }
-            else {
+            } else {
                 nextGreater[i] = nums2[stack.peek()];
             }
             stack.push(i);
