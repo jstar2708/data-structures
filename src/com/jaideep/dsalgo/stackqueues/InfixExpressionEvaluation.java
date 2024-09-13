@@ -32,10 +32,12 @@ public class InfixExpressionEvaluation {
                 } else if (operatorStack.peek() == '(') {
                     operatorStack.push(ch);
                 } else if ((ch == '+' || ch == '-')) {
-                    int val2 = numberStack.pop();
-                    int val1 = numberStack.pop();
-                    char op = operatorStack.pop();
-                    numberStack.push(applyOperation(val1, val2, op));
+                    while (!operatorStack.isEmpty() && operatorStack.peek() != '(') {
+                        int val2 = numberStack.pop();
+                        int val1 = numberStack.pop();
+                        char op = operatorStack.pop();
+                        numberStack.push(applyOperation(val1, val2, op));
+                    }
                     operatorStack.push(ch);
                 } else if ((ch == '*' || ch == '/') && (operatorStack.peek() == '+' || operatorStack.peek() == '-')) {
                     operatorStack.push(ch);
