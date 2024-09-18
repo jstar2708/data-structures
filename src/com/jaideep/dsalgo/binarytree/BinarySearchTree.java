@@ -49,6 +49,45 @@ public class BinarySearchTree {
         }
     }
 
+    public void preOrderTraversal() {
+        preOrderTraversal(root);
+    }
+
+    private void preOrderTraversal(Node node) {
+        if (node == null) {
+            return;
+        }
+        System.out.print(node.val + " ");
+        preOrderTraversal(node.left);
+        preOrderTraversal(node.right);
+    }
+
+    public void inOrderTraversal() {
+        inOrderTraversal(root);
+    }
+
+    private void inOrderTraversal(Node node) {
+        if (node == null) {
+            return;
+        }
+        inOrderTraversal(node.left);
+        System.out.print(node.val + " ");
+        inOrderTraversal(node.right);
+    }
+
+    public void postOrderTraversal() {
+        postOrderTraversal(root);
+    }
+
+    private void postOrderTraversal(Node node) {
+        if (node == null) {
+            return;
+        }
+        postOrderTraversal(node.left);
+        postOrderTraversal(node.right);
+        System.out.print(node.val + " ");
+    }
+
     private static class Node {
         int val;
         Node left;
